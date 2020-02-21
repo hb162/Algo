@@ -1,12 +1,15 @@
-list = [4, 7, 1, -3, 2]
+list = [0, 1, 2, 5]
 
 
 def two_sum(list, k):
-    for i in list:
-        for y in list:
-            if i + y == k:
-                return True
+    result = {}
+    for i in range(0, len(list)):
+        remain = k - list[i]
+        if remain in result:
+            return True
+        else:
+            result[list[i]] = i
     return False
 
 
-print(two_sum(list, 5))
+print(two_sum(list, 4))
