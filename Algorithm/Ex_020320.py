@@ -1,19 +1,30 @@
+"""
+Hi, here's your problem today. This problem was recently asked by Facebook:
+
+Given an undirected graph, determine if a cycle exists in the graph.
+
+Here is a function signature:
+
 def find_cycle(graph):
-    marked = {u: False for u in graph}
+"""
+
+
+def find_cycle(graph):
+    visited = {u: False for u in graph}
     for u in graph:
-        if not marked[u]:
-            if DFS(graph, u, u, marked):
+        if not visited[u]:
+            if DFS(graph, u, u, visited):
                 return True
     return False
 
 
-def DFS(graph, u, previous_node, marked):
-    marked[u] = True
+def DFS(graph, u, previous_node, visited):
+    visited[u] = True
     for v in graph[u]:
-        if marked[v] and v != previous_node:
+        if visited[v] and v != previous_node:
             return True
-        if not marked[v]:
-            if DFS(graph, v, u, marked):
+        if not visited[v]:
+            if DFS(graph, v, u, visited):
                 return True
     return False
 
@@ -25,3 +36,8 @@ graph = {0: {1, 2},
          4: {2},
          }
 print(find_cycle(graph))
+
+
+#Time complexity O(V+E)
+#V là: vertex
+#E là đỉnh
