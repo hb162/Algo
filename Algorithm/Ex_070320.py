@@ -1,3 +1,9 @@
+"""
+Given an array of integers, find the first missing positive integer in linear time and constant space.
+In orther words, find the lowestt positive integer that doesn't exist in the array.
+The array can contain dupplicates and negative numbers as well
+"""
+
 list1 = [3, 2, 1, 0]
 
 
@@ -31,3 +37,7 @@ def first_positive(list_1):
 
 
 print(first_positive(list1))
+
+"""
+Độ phức tạp: O(3n) = O(n)
+"""
